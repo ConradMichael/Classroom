@@ -1,6 +1,10 @@
 package com.bae.persistence.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -10,26 +14,26 @@ public class Classroom {
 		
 	}
 	
-	public Classroom(Integer id, String trainerName, Integer[] classrooms) {
+	public Classroom(Integer classroom, String trainerName) {
 		super();
-		this.id = id;
+		this.classroom = classroom;
 		this.trainerName = trainerName;
-		this.classrooms = classrooms;
 	}
 
 	@Id
-	private Integer id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer classroom;
 	
 	private String trainerName;
 	
-	private Integer[] classrooms;
+	//private List<Integer> trainees;
 
 	public Integer getId() {
-		return id;
+		return classroom;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(Integer classroom) {
+		this.classroom = classroom;
 	}
 
 	public String getTrainerName() {
@@ -40,16 +44,17 @@ public class Classroom {
 		this.trainerName = trainerName;
 	}
 
-	public Integer[] getClassrooms() {
-		return classrooms;
-	}
-
-	public void setClassrooms(Integer[] classrooms) {
-		this.classrooms = classrooms;
-	}
-	
-	
-	
+//	public List<Integer> getTrainees() {
+//		return trainees;
+//	}
+//
+//	public void setTrainees(List<Integer> trainees) {
+//		this.trainees = trainees;
+//	}	
+//	
+//	public void addTrainee(Integer trainee) {
+//		this.trainees.add(trainee);
+//	}
 	
 	
 }

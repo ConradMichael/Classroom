@@ -1,0 +1,14 @@
+com\bae\business\service\ClassroomService.class
+com\bae\business\service\ClassroomServiceImpl.class
+com\bae\business\service\TraineeService.class
+com\bae\persistence\repository\ClassroomDBRepo.class
+com\bae\persistence\domain\Classroom.class
+com\bae\persistence\repository\TraineeDBRepo.class
+com\bae\rest\TraineeEndpoint.class
+com\bae\rest\JAXActivator.class
+com\bae\business\service\TraineeServiceImpl.class
+com\bae\persistence\domain\Trainee.class
+com\bae\persistence\repository\ClassroomRepository.class
+com\bae\persistence\repository\TraineeRepository.class
+com\bae\rest\ClassroomEndpoint.class
+com\bae\util\JSONUtil.class
