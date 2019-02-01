@@ -10,16 +10,19 @@ public class Classroom {
 		
 	}
 	
-	public Classroom(Integer id, String trainerName) {
+	public Classroom(Integer id, String trainerName, Integer[] classrooms) {
 		super();
 		this.id = id;
 		this.trainerName = trainerName;
+		this.classrooms = classrooms;
 	}
 
 	@Id
 	private Integer id;
 	
 	private String trainerName;
+	
+	private Integer[] classrooms;
 
 	public Integer getId() {
 		return id;
@@ -36,6 +39,16 @@ public class Classroom {
 	public void setTrainerName(String trainerName) {
 		this.trainerName = trainerName;
 	}
+
+	public Integer[] getClassrooms() {
+		return classrooms;
+	}
+
+	public void setClassrooms(Integer[] classrooms) {
+		this.classrooms = classrooms;
+	}
+	
+	
 	
 	
 	
