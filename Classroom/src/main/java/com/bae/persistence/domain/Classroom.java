@@ -1,11 +1,18 @@
 package com.bae.persistence.domain;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Classroom {
@@ -14,26 +21,27 @@ public class Classroom {
 		
 	}
 	
-	public Classroom(Integer classroom, String trainerName) {
+	public Classroom(Integer classroomid, String trainerName) {
 		super();
-		this.classroom = classroom;
+		this.classroomid = classroomid;
 		this.trainerName = trainerName;
 	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer classroom;
+	private Integer classroomid;
 	
 	private String trainerName;
 	
-	//private List<Integer> trainees;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "classroomid", cascade = CascadeType.ALL)
+	private Collection<Trainee> trainees = new LinkedHashSet<Trainee>();
 
 	public Integer getId() {
-		return classroom;
+		return classroomid;
 	}
 
-	public void setId(Integer classroom) {
-		this.classroom = classroom;
+	public void setId(Integer classroomid) {
+		this.classroomid = classroomid;
 	}
 
 	public String getTrainerName() {
@@ -43,6 +51,14 @@ public class Classroom {
 	public void setTrainerName(String trainerName) {
 		this.trainerName = trainerName;
 	}
+
+//	public List<Trainee> getComments() {
+//		return comments;
+//	}
+//
+//	public void setComments(List<Trainee> comments) {
+//		this.comments = comments;
+//	}
 
 //	public List<Integer> getTrainees() {
 //		return trainees;

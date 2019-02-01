@@ -28,20 +28,9 @@ public class ClassroomDBRepo implements ClassroomRepository{
 	@Override
 	@SuppressWarnings("unchecked")
 	public String getAllClassrooms() {
-		String classAndTrainees = "";
 		Query getAllQuery = manager.createQuery("SELECT a FROM Classroom a");
 		List<Classroom> classrooms = getAllQuery.getResultList();
-		Query getTrainees = manager.createQuery("SELECT a FROM Trainee a");
-		List<Trainee> trainees = getTrainees.getResultList();
-		for(int i = 0; i < classrooms.size(); i ++) {
-			classAndTrainees += util.getJSONForObject(classrooms.get(i));
-			for(int j = 0; j < trainees.size(); j++) {
-				if(classrooms.get(i).getId() == trainees.get(j).getClassroomid()) {
-					classAndTrainees += util.getJSONForObject(trainees.get(j));
-				}
-			}
-		}
-		return classAndTrainees;
+		return util.getJSONForObject(classrooms);
 	}
 	
 	@Transactional(REQUIRED)
